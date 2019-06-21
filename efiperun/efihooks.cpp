@@ -103,6 +103,7 @@ typedef struct _EFI_ACPI_SUPPORT_PROTOCOL {
 	void* PublishTables;
 } EFI_ACPI_SUPPORT_PROTOCOL; 
 
+#if 0
 typedef struct __attribute__((packed)) {
 	UINT8 Type;
 	UINT8 SubType;
@@ -124,6 +125,7 @@ typedef struct {
 	EFI_MEMORY_TYPE          ImageDataType;
 	VOID*                    Unload;
 } EFI_LOADED_IMAGE_PROTOCOL;
+#endif
 
 typedef struct {
 	void* data;
