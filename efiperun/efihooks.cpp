@@ -382,7 +382,13 @@ void efi_hooks_init()
 	g_efi_system_table_BootServices.HandleProtocol=HandleProtocol;
 	ABORTHOOK(g_efi_system_table_BootServices,PCHandleProtocol);
 	DUMMYHOOK(g_efi_system_table_BootServices,RegisterProtocolNotify);
+#if 0
+	// do not abort on g_efi_system_table_BootService::LocateHandle()
+	// as very simple example, hellow efi! needs this function.
+	// instead abort, install dummy function.
 	ABORTHOOK(g_efi_system_table_BootServices,LocateHandle);
+#endif
+	DUMMYHOOK(g_efi_system_table_BootServices,LocateHandle);
 	ABORTHOOK(g_efi_system_table_BootServices,LocateDevicePath);
 	ABORTHOOK(g_efi_system_table_BootServices,InstallConfigurationTable);
 	ABORTHOOK(g_efi_system_table_BootServices,LoadImage);
