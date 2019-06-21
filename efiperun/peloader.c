@@ -150,7 +150,7 @@ loadinfo load_pe(int fd)
 	shdrs=(EFI_IMAGE_SECTION_HEADER*)(((char*)oh)+nt->FileHeader.SizeOfOptionalHeader);
 	for(int i=0;i<nt->FileHeader.NumberOfSections;i++)
 	{
-		if (shdrs[i].VirtualAddress!=shdrs[i].PointerToRawData) ERROR("Section VirtualAddress/file offset mismatch");
+//		if (shdrs[i].VirtualAddress!=shdrs[i].PointerToRawData) ERROR("Section VirtualAddress/file offset mismatch");
 		memcpy(pbase+shdrs[i].VirtualAddress,pebuf+shdrs[i].PointerToRawData,shdrs[i].SizeOfRawData);
 	}
 	
